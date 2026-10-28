@@ -1059,6 +1059,13 @@ class AppIndicatorsIconActor extends St.Icon {
     }
 
     async _waitForFullyReady() {
+        // The actor may have been destroyed while we were waiting (e.g. it got
+        // mapped and destroyed in the same main loop iteration when disabling).
+        if (!this._indicator) {
+            throw new GLib.Error(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED,
+                'Icon actor has been destroyed');
+        }
+
         const waitConditions = [];
 
         if (!this.is_mapped()) {
