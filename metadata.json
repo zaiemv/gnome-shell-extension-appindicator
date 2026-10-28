@@ -11,7 +11,7 @@
   "gettext-domain": "AppIndicatorExtension",
   "settings-schema": "org.gnome.shell.extensions.appindicator",
   "uuid": "appindicatorsupport@proxblox",
-  "name": "AppIndicator Support (proxblox fork)",
-  "description": "Adds AppIndicator, KStatusNotifierItem and legacy Tray icons support to the Shell",
+  "name": "AppIndicator + Top Bar Tidy (proxblox)",
+  "description": "AppIndicator, KStatusNotifierItem and legacy Tray icons support, plus Top Bar Tidy: hide chosen status icons, tuck tray icons behind an arrow, Super+drag to reorder. Fork of ubuntu/gnome-shell-extension-appindicator.",
   "url": "https://github.com/zaiemv/gnome-shell-extension-appindicator"
 }

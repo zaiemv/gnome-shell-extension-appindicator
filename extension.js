@@ -22,6 +22,7 @@ import * as TrayIconsManager from './trayIconsManager.js';
 import * as Util from './util.js';
 import {Logger} from './logger.js';
 import {SettingsManager} from './settingsManager.js';
+import {TopBarTidy} from './topBarTidy.js';
 
 export default class AppIndicatorExtension extends Extension.Extension {
     constructor(...args) {
@@ -59,6 +60,7 @@ export default class AppIndicatorExtension extends Extension.Extension {
         Util.tryCleanupOldIndicators();
         this._maybeEnableAfterNameAvailable();
         TrayIconsManager.TrayIconsManager.initialize();
+        this._topBarTidy = new TopBarTidy(this.getSettings('org.gnome.shell.extensions.top-bar-tidy'));
     }
 
     disable() {
@@ -71,6 +73,10 @@ export default class AppIndicatorExtension extends Extension.Extension {
         }
 
         SettingsManager.destroy();
+
+        // After the tray icons are gone, so it does not un-hide icons that are about to be destroyed
+        this._topBarTidy.destroy();
+        this._topBarTidy = null;
     }
 
     // FIXME: when entering/leaving the lock screen, the extension might be

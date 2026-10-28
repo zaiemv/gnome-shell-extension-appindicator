@@ -6,6 +6,7 @@ import Gtk from 'gi://Gtk';  // will be removed
 import Gdk from 'gi://Gdk';
 import * as GeneralPreferences from './preferences/generalPage.js';
 import * as CustomIconPreferences from './preferences/customIconPage.js';
+import * as TopBarTidyPreferences from './preferences/topBarTidyPage.js';
 
 import {
     ExtensionPreferences,
@@ -37,6 +38,8 @@ export default class DockPreferences extends ExtensionPreferences {
 
         window.add(generalPage);
         window.add(customIconPage);
+        window.add(new TopBarTidyPreferences.TopBarTidyPage(
+            this.getSettings('org.gnome.shell.extensions.top-bar-tidy')));
 
         window.connect('close-request', () => {
             window.destroy();

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.top-bar-tidy" path="/org/gnome/shell/extensions/top-bar-tidy/">
+    <key name="hidden-indicators" type="as">
+      <default><![CDATA[['ServiceIndicator']]]></default>
+      <summary>Quick settings status icons to hide from the top bar</summary>
+      <description>Class names of quick-settings SystemIndicators (ServiceIndicator = GSConnect). Their toggles in the quick settings menu stay.</description>
+    </key>
+    <key name="overflow-items" type="as">
+      <default><![CDATA[['Another Window Session Manager', 'tilingshell@ferrarodomenico.com', 'title:warp-taskbar', 'title:handy']]]></default>
+      <summary>Top-bar buttons tucked behind the arrow</summary>
+      <description>Panel status-area roles, or "title:NAME" for app tray icons (AppIndicator title). Hidden until the arrow is clicked.</description>
+    </key>
+    <key name="order" type="as">
+      <default>[]</default>
+      <summary>Saved left-to-right order of the visible top-bar icons (Super+drag)</summary>
+      <description>Status-area roles or "title:NAME" for tray icons. Icons not listed keep their place.</description>
+    </key>
+    <key name="auto-hide-seconds" type="u">
+      <range min="0" max="600"/>
+      <default>10</default>
+      <summary>Hide the tucked icons again this many seconds after the arrow opens them (0 = never)</summary>
+      <description>The timer waits while the pointer is over the arrow or a revealed icon, or one of their menus is open.</description>
+    </key>
+    <key name="always-show-arrow" type="b">
+      <default>true</default>
+      <summary>Show the arrow also when nothing is tucked away</summary>
+      <description>So there is always somewhere to drop an icon (Super+drag). Off: no arrow while nothing is tucked.</description>
+    </key>
+  </schema>
+</schemalist>
